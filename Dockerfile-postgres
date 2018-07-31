@@ -1,0 +1,5 @@
+FROM postgres:9.6
+
+RUN apt-get update
+RUN apt-get install -fy postgresql-plpython-9.6 postgresql-9.6-debversion 
+

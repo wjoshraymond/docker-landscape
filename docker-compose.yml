@@ -1,0 +1,29 @@
+version: '3'
+services:
+    postgres:
+      image: postgres
+      build: 
+        context: .
+        dockerfile: Dockerfile-postgres
+      environment:
+       - POSTGRES_PASSWORD=password
+    rabbitmq:
+      image: rabbitmq:3-management
+      ports:
+       - "15672:15672"
+    landscape-server:
+      build: .
+      environment:
+       - STARTUP_WAIT_TIME=10
+       - INITIALIZE_SCHEMA=yes
+       - DB_USER=postgres
+       - DB_PASS=password
+       - DB_LANDSCAPE_PASS=password
+       - DB_HOST=postgres
+       - RMQ_HOST=localhost
+      links:
+       - postgres
+       - rabbitmq
+      ports:
+       - "88:80"
+       - "443:443"
