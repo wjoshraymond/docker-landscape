@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
     postgres:
       image: postgres
@@ -13,6 +13,7 @@ services:
        - "15672:15672"
     landscape-server:
       build: .
+      restart: always
       environment:
        - STARTUP_WAIT_TIME=10
        - INITIALIZE_SCHEMA=yes
