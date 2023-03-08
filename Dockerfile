@@ -8,6 +8,7 @@ RUN apt-get install -fy software-properties-common
 
 #Add repository that contains the landscape server
 RUN add-apt-repository ppa:landscape/18.03
+RUN add-apt-repository ppa:xenial-pgdg
 RUN apt-get update
 RUN apt-get -fy install landscape-server apache2 libpq-dev
 
