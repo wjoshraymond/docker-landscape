@@ -1,5 +1,4 @@
-FROM postgres:9.6
+FROM postgres:10
 
 RUN apt-get update
-RUN apt-get install -fy postgresql-plpython-9.6 postgresql-9.6-debversion 
-
+RUN apt-get install -fy postgresql-10 python-apt postgresql-plpython3-10 postgresql-contrib-10 postgresql-10-debversion
