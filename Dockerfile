@@ -9,7 +9,7 @@ RUN apt-get install -fy software-properties-common
 #Add repository that contains the landscape server
 RUN add-apt-repository ppa:landscape/19.10
 RUN apt-get update
-RUN apt-get -fy install landscape-server apache2
+RUN apt-get -fy install landscape-server apache2 postgresql-plpython3-10
 
 RUN for module in rewrite proxy_http ssl headers expires; do a2enmod $module; done
 RUN a2dissite 000-default
